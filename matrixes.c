@@ -19,12 +19,12 @@
  double even_inverse[3][4];
  double odd_inverse[3][4];
  double inverse0[4][4];
- double phi1= 162.60982*PI/180;
- double phi2=  -155.874949*PI/180;
- double phi3=  -115.915*PI/180;
- double phi4= -49.172*PI/180;
- double phi5= 40.102*PI/180;
- double phi6= -28.159*PI/180;
+ double phi1= 0;
+ double phi2= 0;
+ double phi3= 0;
+ double phi4= 0;
+ double phi5= 0;
+ double phi6= 0;
  
 void initdhmatrix01(double phi1)
 {
@@ -47,7 +47,7 @@ void initdhmatrix01(double phi1)
 }
 
 
-void initdhmatrix12(void)
+void initdhmatrix12(double phi2)
 {
    dhmatrix12[0][0]= -sin(phi2);
    dhmatrix12[0][1]= -cos(phi2);
@@ -67,7 +67,7 @@ void initdhmatrix12(void)
    dhmatrix12[3][3]=1;
 }
  
-void initdhmatrix23(void)
+void initdhmatrix23(double phi3)
 {
    dhmatrix23[0][0]= cos(phi3);
    dhmatrix23[0][1]= 0;
@@ -87,7 +87,7 @@ void initdhmatrix23(void)
    dhmatrix23[3][3]= 1;
 }
 
-void initdhmatrix34(void)
+void initdhmatrix34(double phi4)
 {
      dhmatrix34[0][0]= cos(phi4);
      dhmatrix34[0][1]= 0;
@@ -108,7 +108,7 @@ void initdhmatrix34(void)
      
 }
 
-void initdhmatrix45(void)
+void initdhmatrix45(double phi5)
 {
       dhmatrix45[0][0]= cos(phi5);
       dhmatrix45[0][1]= 0;
@@ -128,7 +128,7 @@ void initdhmatrix45(void)
       dhmatrix45[3][3]= 1;
 }
 
-void initdhmatrix5TCP(void)
+void initdhmatrix5TCP(double phi6)
 {
      dhmatrix5TCP[0][0]= cos(phi6);
      dhmatrix5TCP[0][1]= -sin(phi6);
@@ -192,11 +192,11 @@ void initdhmatrixHilfEnd(void)
 void initdhmatrixALL(void)
 {
      initdhmatrix01(phi1);
-     initdhmatrix12();
-     initdhmatrix23();
-     initdhmatrix34();
-     initdhmatrix45();
-     initdhmatrix5TCP();
+     initdhmatrix12(phi2);
+     initdhmatrix23(phi3);
+     initdhmatrix34(phi4);
+     initdhmatrix45(phi5);
+     initdhmatrix5TCP(phi6);
      initdhmatrixTCPhilf();
      initdhmatrixHilfEnd();
 }

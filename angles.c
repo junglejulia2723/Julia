@@ -151,7 +151,7 @@ double phi5_solution1(double matrix[3][4], double angle)
 		else
         {
 			
-        	phi =check_Phi_range(atan(b/a));
+        	phi =atan(b/a);
         	
         	return phi;
    		}
@@ -188,7 +188,7 @@ double phi6_solution1(double matrix[3][4], double angle)
 		else
         {
 			
-        	phi =check_Phi_range(atan(-(a/b)));
+        	phi =atan(-(a/b));
         
         	return phi;
    		}

@@ -5,6 +5,7 @@
 #include "matrixes.h"
 #include "angles.h"
 #include "userspace.h"
+#include "solution.h"
 
 
 
@@ -24,6 +25,7 @@ int main(int argc, char *argv[])
     double possibilities_phi4[16];
     double possibilities_phi5[32];
     double possibilities_phi6[32];
+    double deviation=0;
     int y,x, inversepossilbe=0;
    
 
@@ -101,12 +103,77 @@ int main(int argc, char *argv[])
          possibilities_phi6[13] = phi6_solution2(possibilities_phi6[12]);
          possibilities_phi6[14]= phi6_solution1(odd_inverse,possibilities_phi4[7]);
          possibilities_phi6[15] = phi6_solution2(possibilities_phi6[14]);
-         printf("nr.9  %f \n", possibilities_phi6[12]);
-         printf("nr.10  %f \n", possibilities_phi6[13]);
-         //next calc Phi1-2 matrix
+         
+         
+        calc_second_Matrix_for_Angles(ph1_inverse0,possibilities_phi1[1]);
+        possibilities_phi2[2] = phi2_solution1(odd_inverse);
+        possibilities_phi2[3] = phi2_solution2(odd_inverse);
+   
+        calc_third_Matrix_for_Angles(odd_inverse,possibilities_phi2[2]);
+        possibilities_phi3[4] = phi3_solution1(even_inverse);
+        possibilities_phi3[5] = phi3_solution2(even_inverse);
+        calc_fourth_Matrix_for_Angles(even_inverse,possibilities_phi3[4]);
+        possibilities_phi4[8]= phi4_solution1(even_inverse,possibilities_phi3[4]);
+        possibilities_phi4[9] = phi4_solution2(possibilities_phi4[8]);
+        possibilities_phi5[16]= phi5_solution1(odd_inverse,possibilities_phi4[8]);
+        possibilities_phi5[17] = phi5_solution2(possibilities_phi5[16]);
+        possibilities_phi5[18]= phi5_solution1(odd_inverse,possibilities_phi4[9]);
+        possibilities_phi5[19] = phi5_solution2(possibilities_phi5[18]);
+        possibilities_phi6[16]= phi6_solution1(odd_inverse,possibilities_phi4[8]);
+        possibilities_phi6[17] = phi6_solution2(possibilities_phi6[16]);
+        possibilities_phi6[18]= phi6_solution1(odd_inverse,possibilities_phi4[9]);
+        possibilities_phi6[19] = phi6_solution2(possibilities_phi6[18]);
         
+        calc_fourth_Matrix_for_Angles(even_inverse,possibilities_phi3[5]);
+		 possibilities_phi4[10]= phi4_solution1(even_inverse,possibilities_phi3[5]);
+         possibilities_phi4[11] = phi4_solution2(possibilities_phi4[10]);
+         possibilities_phi5[20]= phi5_solution1(odd_inverse,possibilities_phi4[10]);
+         possibilities_phi5[21] = phi5_solution2(possibilities_phi5[20]);
+         possibilities_phi5[22]= phi5_solution1(odd_inverse,possibilities_phi4[11]);
+         possibilities_phi5[23] = phi5_solution2(possibilities_phi5[22]);
+         possibilities_phi6[20]= phi6_solution1(odd_inverse,possibilities_phi4[10]);
+         possibilities_phi6[21] = phi6_solution2(possibilities_phi6[20]);
+         possibilities_phi6[22]= phi6_solution1(odd_inverse,possibilities_phi4[11]);
+         possibilities_phi6[23] = phi6_solution2(possibilities_phi6[22]);
+         
+        calc_second_Matrix_for_Angles(ph1_inverse0,possibilities_phi1[1]);
+        calc_third_Matrix_for_Angles(odd_inverse,possibilities_phi2[3]);
+        possibilities_phi3[6] = phi3_solution1(even_inverse);
+        possibilities_phi3[7] = phi3_solution2(even_inverse);
+        calc_fourth_Matrix_for_Angles(even_inverse,possibilities_phi3[6]);
+         possibilities_phi4[12]= phi4_solution1(even_inverse,possibilities_phi3[6]);
+         possibilities_phi4[13] = phi4_solution2(possibilities_phi4[12]);
+         possibilities_phi5[24]= phi5_solution1(odd_inverse,possibilities_phi4[12]);
+         possibilities_phi5[25] = phi5_solution2(possibilities_phi5[24]);
+         possibilities_phi5[26]= phi5_solution1(odd_inverse,possibilities_phi4[13]);
+         possibilities_phi5[27] = phi5_solution2(possibilities_phi5[26]);
+         possibilities_phi6[24]= phi6_solution1(odd_inverse,possibilities_phi4[12]);
+         possibilities_phi6[25] = phi6_solution2(possibilities_phi6[24]);
+         possibilities_phi6[26]= phi6_solution1(odd_inverse,possibilities_phi4[13]);
+         possibilities_phi6[27] = phi6_solution2(possibilities_phi6[26]);
+         
+        calc_fourth_Matrix_for_Angles(even_inverse,possibilities_phi3[7]);
+         possibilities_phi4[14]= phi4_solution1(even_inverse,possibilities_phi3[7]);
+         possibilities_phi4[15] = phi4_solution2(possibilities_phi4[14]);
+         possibilities_phi5[28]= phi5_solution1(odd_inverse,possibilities_phi4[14]);
+         possibilities_phi5[29] = phi5_solution2(possibilities_phi5[28]);
+         possibilities_phi5[30]= phi5_solution1(odd_inverse,possibilities_phi4[15]);
+         possibilities_phi5[31] = phi5_solution2(possibilities_phi5[30]);
+         possibilities_phi6[28]= phi6_solution1(odd_inverse,possibilities_phi4[14]);
+         possibilities_phi6[29] = phi6_solution2(possibilities_phi6[28]);
+         possibilities_phi6[30]= phi6_solution1(odd_inverse,possibilities_phi4[15]);
+         possibilities_phi6[31] = phi6_solution2(possibilities_phi6[30]);
+        
+        deviation= calcDeviation(phi1,possibilities_phi1[0]); 
+        deviation += calcDeviation(phi2,possibilities_phi2[0]); 
+        deviation += calcDeviation(phi3,possibilities_phi3[0]); 
+        deviation += calcDeviation(phi4,possibilities_phi4[0]); 
+        deviation += calcDeviation(phi5,possibilities_phi5[0]); 
+        deviation += calcDeviation(phi2,possibilities_phi6[0]); 
+        
+        printf("nr.10  %f \n", deviation);
      
-        
+
        //system("PAUSE");	
         return 0;
 }
