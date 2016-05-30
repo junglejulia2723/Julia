@@ -1,6 +1,8 @@
 #ifndef _MATRIXES_H /* Include guard */
 #define _MATRIXES_H
 #include "userspace.h"
+#include <stdio.h>
+#include <math.h>
 
 #define toDeg(x) x*180/PI
 #define toRad(x) x*PI/180
@@ -61,6 +63,7 @@ int gluInvertMatrix(double matrix[4][4], double invOut[4][4]);
 void calc_Matrix_T_0_End();
 void calc_Matrix_A_End_TCP();
 void calc_first_Matrix_for_Angles();
-void calc_odd_Matrix_for_Angles(double previous_inverse[3][4], double angle);
-void calc_even_Matrix_for_Angles(double previous_inverse[3][4], double angle);
+void calc_second_Matrix_for_Angles(double previous_inverse[3][4], double angle);
+void calc_third_Matrix_for_Angles(double previous_inverse[3][4], double angle);
+void calc_fourth_Matrix_for_Angles(double previous_inverse[3][4], double angle);
 #endif

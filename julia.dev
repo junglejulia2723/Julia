@@ -3,7 +3,7 @@ FileName=julia.dev
 Name=Projekt1
 UnitCount=7
 Type=1
-Ver=1
+Ver=2
 ObjFiles=
 Includes=
 Libs=
@@ -28,6 +28,8 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0000000000000000000000
+LogOutput=
+LogOutputEnabled=0
 
 [Unit1]
 FileName=main.c
@@ -56,6 +58,7 @@ OriginalFilename=
 ProductName=
 ProductVersion=
 AutoIncBuildNr=0
+SyncProduct=0
 
 [Unit2]
 FileName=matrixes.h

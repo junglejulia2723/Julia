@@ -1,4 +1,5 @@
 #include "userspace.h"
+#include <math.h>
 
 double rotationA= toRad(1);
 double rotationB= toRad(-16);

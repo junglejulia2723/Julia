@@ -10,4 +10,10 @@ double phi2_solution1(double matrix[3][4]);
 double phi2_solution2(double matrix[3][4]);
 double phi3_solution1(double matrix[3][4]);
 double phi3_solution2(double matrix[3][4]);
+double phi4_solution1(double matrix[3][4], double angle);
+double phi4_solution2(double angle);
+double phi5_solution1(double matrix[3][4], double angle);
+double phi5_solution2(double angle);
+double phi6_solution1(double matrix[3][4], double angle);
+double phi6_solution2(double angle);
 #endif

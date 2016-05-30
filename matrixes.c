@@ -1,6 +1,5 @@
 #include "matrixes.h"
-#include <stdio.h>
-#include <math.h>
+
 
 
 
@@ -404,7 +403,7 @@ void calc_first_Matrix_for_Angles()
    
 }
 
-void calc_odd_Matrix_for_Angles(double previous_inverse[3][4], double angle)
+void calc_second_Matrix_for_Angles(double previous_inverse[3][4], double angle)
 {
       odd_inverse[0][0]= previous_inverse[0][0]*cos(angle)+previous_inverse[1][0]*sin(angle);
       odd_inverse[0][1]= previous_inverse[0][1]*cos(angle)+previous_inverse[1][1]*sin(angle);
@@ -420,7 +419,7 @@ void calc_odd_Matrix_for_Angles(double previous_inverse[3][4], double angle)
       odd_inverse[2][3]= previous_inverse[0][3]*sin(angle)-previous_inverse[1][3]*cos(angle);
 }
 
-void calc_even_Matrix_for_Angles(double previous_inverse[3][4], double angle)
+void calc_third_Matrix_for_Angles(double previous_inverse[3][4], double angle)
 {
       even_inverse[0][0]= previous_inverse[1][0]*cos(angle)-previous_inverse[0][0]*sin(angle);
       even_inverse[0][1]= previous_inverse[1][1]*cos(angle)-previous_inverse[0][1]*sin(angle);
@@ -436,3 +435,20 @@ void calc_even_Matrix_for_Angles(double previous_inverse[3][4], double angle)
       even_inverse[2][3]= previous_inverse[2][3];  
      
 }
+
+void calc_fourth_Matrix_for_Angles(double previous_inverse[3][4], double angle)
+{
+ 		odd_inverse[0][0]= previous_inverse[0][0]*cos(angle)+previous_inverse[1][0]*sin(angle);
+      odd_inverse[0][1]= previous_inverse[0][1]*cos(angle)+previous_inverse[1][1]*sin(angle);
+      odd_inverse[0][2]= previous_inverse[0][2]*cos(angle)+previous_inverse[1][2]*sin(angle);
+      odd_inverse[0][3]= previous_inverse[0][3]*cos(angle)+previous_inverse[1][3]*sin(angle)-A3;
+      odd_inverse[1][0]= previous_inverse[2][0];
+      odd_inverse[1][1]= previous_inverse[2][1];
+      odd_inverse[1][2]= previous_inverse[2][2];
+      odd_inverse[1][3]= previous_inverse[2][3]-D3;
+      odd_inverse[2][0]= previous_inverse[0][0]*sin(angle)-previous_inverse[1][0]*cos(angle);
+      odd_inverse[2][1]= previous_inverse[0][1]*sin(angle)-previous_inverse[1][1]*cos(angle);
+      odd_inverse[2][2]= previous_inverse[0][2]*sin(angle)-previous_inverse[1][2]*cos(angle);
+      odd_inverse[2][3]= previous_inverse[0][3]*sin(angle)-previous_inverse[1][3]*cos(angle);
+}
+
