@@ -195,4 +195,3 @@ double phi6_solution1(double matrix[3][4], double angle)
 }
 
 
-

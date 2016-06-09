@@ -4,7 +4,7 @@
 double rotationA= toRad(1);
 double rotationB= toRad(-16);
 double rotationC= toRad(-54);
-double positionVectorX=-35;
+double positionVectorX=-24;
 double positionVectorY=37;
 double positionVectorZ=116;
 double rotationUserMatrix[4][4]; //EINGABE

@@ -4,10 +4,11 @@
 #include <stdio.h>
 #include <math.h>
 
+#define PI 3.141592653589793
 #define toDeg(x) x*180/PI
 #define toRad(x) x*PI/180
 
-#define PI 3.141593
+
 
 #define PHIW toRad(90)
 #define OMEGA toRad(-90)

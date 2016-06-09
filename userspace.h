@@ -2,7 +2,7 @@
 #define _USERSPACE_H
 
 
-#define PI 3.141593
+#define PI 3.141592653589793
 #define toRad(x) x*PI/180
 //im Moment noch als fixe Werte! Später Eingabe möglich!!!
 
@@ -24,7 +24,7 @@ extern double endeffector_z;
 extern double orientationEndeffector_x;
 extern double orientationEndeffector_y;
 extern double orientationEndeffector_z;
-extern double rotationUserMatrix[4][4];
+extern double rotationUserMatrix[4][4]; 
 extern double rotationWorkpieceMatrix[4][4];
 extern double orientationTCP[4][4];
 extern double tcp_to_base[4][4];
