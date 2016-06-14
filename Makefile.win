@@ -4,8 +4,8 @@
 CPP      = g++.exe -D__DEBUG__
 CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
-OBJ      = main.o matrixes.o userspace.o angles.o solution.o
-LINKOBJ  = main.o matrixes.o userspace.o angles.o solution.o
+OBJ      = main.o matrixes.o userspace.o angles.o solution.o dhmatrix.o
+LINKOBJ  = main.o matrixes.o userspace.o angles.o solution.o dhmatrix.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -38,3 +38,6 @@ angles.o: angles.c
 
 solution.o: solution.c
 	$(CC) -c solution.c -o solution.o $(CFLAGS)
+
+dhmatrix.o: dhmatrix.c
+	$(CC) -c dhmatrix.c -o dhmatrix.o $(CFLAGS)

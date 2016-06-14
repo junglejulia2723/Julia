@@ -17,5 +17,6 @@ double phi5_solution1(double matrix[3][4], double angle);
 double phi5_solution2(double angle);
 double phi6_solution1(double matrix[3][4], double angle);
 double phi6_solution2(double angle);
+double check_min_max(double angle);
 
 #endif

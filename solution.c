@@ -39,7 +39,7 @@ double calcDeviation(double old_angle, double new_angle)
 	return deviation;
 }
 
-double calc_base_to_end_deviation(double phi1, double phi2,double phi3,double phi4,double phi5,double phi6)
+double calc_base_to_end_deviation(double phi1, double phi2,double phi3,double phi4,double phi5,double phi6, double rotationUserMatrix[4][4])
 {
 	double a,b,c,d,e,f,g,h,i,j,k,m,o,p,q,r,s,u,v,px,py,pz,nx,ny,nz,ox,oy,oz,az,ay,ax,deviation; //all variablenames according to Excel Simulation-6-Achs-Roboter
 	//sheet Überprüfe Position_1

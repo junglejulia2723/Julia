@@ -1,13 +1,7 @@
 #include "userspace.h"
 #include <math.h>
 
-double rotationA= toRad(1);
-double rotationB= toRad(-16);
-double rotationC= toRad(-54);
-double positionVectorX=-24;
-double positionVectorY=37;
-double positionVectorZ=116;
-double rotationUserMatrix[4][4]; //EINGABE
+
 double endeffector_x =197;
 double endeffector_y=-50;
 double endeffector_z=80.5;

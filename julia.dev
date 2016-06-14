@@ -1,7 +1,7 @@
 [Project]
 FileName=julia.dev
 Name=Projekt1
-UnitCount=9
+UnitCount=11
 Type=1
 Ver=2
 ObjFiles=
@@ -132,6 +132,26 @@ BuildCmd=
 
 [Unit9]
 FileName=solution.c
+CompileCpp=0
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit10]
+FileName=dhmatrix.h
+CompileCpp=0
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit11]
+FileName=dhmatrix.c
 CompileCpp=0
 Folder=
 Compile=1
