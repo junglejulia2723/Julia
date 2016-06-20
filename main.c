@@ -22,34 +22,40 @@ int main(int argc, char *argv[])
 	double possibilities_phi6[32];
 	double rotationUserMatrix[4][4];
    
-    double angledeviation;
-    double smallest_angledeviation;
-    double compair_angledeviation;
-	double smallest_deviation;
-	double compair_deviation;
-    double deviation;
-    double solution;
-    int y,x, inversepossilbe=0;
-    int a,b,c,d,e,f,g,h,i,j,k,loopcnt=0; //varibales for loopcnt
-	double phi1_angle=0;
+
+    double angledeviation; //deviation of all new angles to old angles
+    double smallest_angledeviation; //smallest value of all angledeviations
+    double compair_deviation; // position deviation associated with angledeviation
+    
+    double deviation; // deviation of possible new position and actual position
+	double smallest_deviation; //smallest of all calculated deviations
+	double compair_angledeviation; //angle deviation associated with position deviation
+	
+   
+    double solution; //feasiblest deviation
+    
+    
+    int a,b,c,d,e,f,g,h,i,j,k,x,y,loopcnt=0; //varibales for loopcount
+	double phi1_angle=0; //angles associated with smallest angle deviation
 	double phi2_angle=0;
 	double phi3_angle=0;
 	double phi4_angle=0;
 	double phi5_angle=0;
 	double phi6_angle=0;
-	double phi1_deviation=0;
+	double phi1_deviation=0;  //angles associated with smallest position deviation
 	double phi2_deviation=0;
 	double phi3_deviation=0;
 	double phi4_deviation=0;
 	double phi5_deviation=0;
 	double phi6_deviation=0;
 	double robo_accuracy =1;
-	double rotationA;
-	double rotationB;
-	double rotationC;
-	double positionVectorX;
-	double positionVectorY;
-	double positionVectorZ;
+	double rotationA;  //euler angle z
+	double rotationB;  //euler angle y 
+	double rotationC;  //euler angle x
+	double positionVectorX; //user entry of x coordinate for new position
+	double positionVectorY; //user entry of y coordinate for new position
+	double positionVectorZ; //user entry of z coordinate for new position
+	
 	while(1)
 	{
 	
@@ -67,7 +73,8 @@ int main(int argc, char *argv[])
 	b=0;
 	c=0;
 	d=0;
-	printf("%f\n",toRad(90));
+	
+	  //user entry of position vector and eukler angle
       printf("if you want to exit the programm enter 2000\n");
       printf("Please enter x position of postion vector:");
       scanf("%lf", &positionVectorX);
@@ -88,6 +95,8 @@ int main(int argc, char *argv[])
    	  printf("Please enter c (x) position of the euler angle:");
    	  scanf("%lf", &rotationC);
    	  rotationC=toRad(rotationC);
+   	  
+   	  //calculate user entries matrix
 	  initRotationMatrix(rotationA, rotationB, rotationC,  positionVectorX,  positionVectorY, positionVectorZ, rotationUserMatrix);
      
 	  /* needed if other coordinate system is used
@@ -97,21 +106,20 @@ int main(int argc, char *argv[])
       matrixmultiplication(orientationTCP, rotationUserMatrix, entered_orientation);
     	*/
      
+     
+     //calculate all possible angles
 		calc_first_Matrix_for_Angles(rotationUserMatrix);
      
          possibilities_phi1[0] = phi1_solution1(ph1_inverse0);
          possibilities_phi1[1]= phi1_solution2(ph1_inverse0);
-         printf("%f\n",possibilities_phi1[0]);
+         
          for(e=0;e<4;e++)
          {
-		 
-		 
 			 if(e==2)
 			 {
 			 	i=1;
 			 	k=2;
 			 }
-			 
 	        calc_second_Matrix_for_Angles(ph1_inverse0,possibilities_phi1[i]);
 	        if(e==0 || e==2)
 	         {
@@ -145,6 +153,8 @@ int main(int argc, char *argv[])
 		j=0;
 		k=0;
 		x=0;
+		
+		//compair all solution and search smallest deviation and smallest angle deviation
 	    for (a=0;a<2;a++)
 	    {
 	        for (b=0;b<2;b++)
@@ -180,7 +190,8 @@ int main(int argc, char *argv[])
 	                        }
 	                        if(possibilities_phi1[a]==0 || possibilities_phi2[k]==0 || possibilities_phi3[j]==0 || possibilities_phi4[h]==0 || possibilities_phi5[f]==0 || possibilities_phi6[g] ==0)
 	                        {
-	                        	printf("Angle calcualtion nr. %d had an angle containing zero\n", x);
+	                        	x++;
+								printf("Angle calcualtion nr. %d had an angle containing zero\n", x);
 							}
 							else
 							{
@@ -196,7 +207,7 @@ int main(int argc, char *argv[])
 			                    x++;
 			                    printf("nr. %d : %f\n", x, deviation);
 							    
-								if(angledeviation < smallest_angledeviation)
+								if(angledeviation < smallest_angledeviation && angledeviation> 0)
 			                    {
 			                    	smallest_angledeviation= angledeviation;
 			                    	phi1_angle=possibilities_phi1[a];
@@ -208,7 +219,7 @@ int main(int argc, char *argv[])
 			                    	compair_deviation=deviation;
 			                    
 								}
-			                    if(deviation < smallest_deviation)
+			                    if(deviation < smallest_deviation && deviation>0 )
 			                    {
 			                    	smallest_deviation=deviation;
 			                    	printf("the smalles deviation: %f\n",smallest_deviation);
@@ -235,6 +246,7 @@ int main(int argc, char *argv[])
 		printf("the smalles deviation: %f\n",smallest_deviation);
        	printf("the comp angle: %f\n",compair_angledeviation);
        	
+       	//search for the best solution
        	if(smallest_deviation< robo_accuracy && compair_deviation< robo_accuracy )
        	{
 			if(compair_angledeviation <= smallest_angledeviation)

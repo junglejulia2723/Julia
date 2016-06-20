@@ -4,15 +4,7 @@
 
 #define PI 3.141592653589793
 #define toRad(x) x*PI/180
-//im Moment noch als fixe Werte! Später Eingabe möglich!!!
-/*
-extern double rotationA;
-extern double rotationB;
-extern double rotationC;
-extern double positionVectorX;
-extern double positionVectorY;
-extern double positionVectorZ;
-*/
+
 extern double shiftWorkpiece_x;
 extern double shiftWorkpiece_y;
 extern double shiftWorkpiece_z;
@@ -32,5 +24,5 @@ extern double tcp_to_base[4][4];
 extern double workpiece_to_base[4][4];
 extern double entered_orientation[4][4];
 void initRotationMatrix(double a, double b, double c,double positionVectorX, double positionVectorY, double positionVectorZ,  double  matrix[4][4]);
-void setOrientationTCP();
+void setOrientationTCP(double positionVectorX,double positionVectorY, double positionVectorZ);
 #endif

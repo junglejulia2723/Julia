@@ -38,20 +38,20 @@ void initRotationMatrix(double a, double b, double c, double positionVectorX, do
      rotationMatrix[3][3]=1;
 
 }
-void setOrientationTCP()
+void setOrientationTCP(double positionVectorX,double positionVectorY, double positionVectorZ)
 {
      orientationTCP[0][0]=0;
      orientationTCP[0][1]=-1;
      orientationTCP[0][2]= 6.1257*exp(-17);
-     orientationTCP[0][3]=endeffector_x;
+     orientationTCP[0][3]=positionVectorX;
      orientationTCP[1][0]=-1;
      orientationTCP[1][1]=-3.7525*exp(-33);
      orientationTCP[1][2]= -6.1257*exp(-17);
-     orientationTCP[1][3]=endeffector_y;
+     orientationTCP[1][3]= positionVectorY;
      orientationTCP[2][0]=6.1257*exp(-17);
      orientationTCP[2][1]=-6.1257*exp(-17);
      orientationTCP[2][2]= -1;
-     orientationTCP[2][3]=80.5;
+     orientationTCP[2][3]=  positionVectorZ;
      orientationTCP[3][0]=0;
      orientationTCP[3][1]=0;
      orientationTCP[3][2]=0;

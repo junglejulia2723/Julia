@@ -12,6 +12,8 @@ extern double dhmatrixTCPhilf[4][4];
 extern double dhmatrixHilfEnd[4][4];
 extern double dhmatrix0End[4][4];
 extern double dhmatrixEndTCP[4][4];
+extern double buffermatrix[4][4];
+extern double buffermatrix2[4][4];
 
 
 extern double phi1;
@@ -21,6 +23,8 @@ extern double phi4;
 extern double phi5;
 extern double phi6;
 
+void matrixmultiplication(double matrix1[4][4], double matrix2[4][4], double buffermatrix[4][4]); //Matrizenmultiplikation
+int gluInvertMatrix(double matrix[4][4], double invOut[4][4]); //Berechnung der Inversenmatrix 
 void initdhmatrix01(double phi1);
 void initdhmatrix12(double phi2);
 void initdhmatrix23(double phi3);
